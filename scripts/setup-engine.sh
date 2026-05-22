@@ -16,6 +16,7 @@ curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
 apt-get install -y nodejs git jq
 
 echo "=== [3/6] Install iii CLI ==="
+export BIN_DIR=/usr/local/bin
 curl -fsSL https://install.iii.dev/iii/main/install.sh | bash -
 
 echo "=== [4/6] Clone project repo ==="
@@ -29,6 +30,6 @@ echo "=== [6/6] Start iii engine in background ==="
 cd $ENGINE_DIR
 export NODE_ENV=production
 
-nohup /root/.iii/bin/iii dev > /var/log/iii-engine-app.log 2>&1 &
+nohup /usr/local/bin/iii > /var/log/iii-engine-app.log 2>&1 &
 
 echo "=== Engine setup complete ==="

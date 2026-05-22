@@ -12,15 +12,15 @@ export DEBIAN_FRONTEND=noninteractive
 apt-get update -y
 apt-get upgrade -y
 
-echo "=== [2/6] Install Python 3.11 + Git ==="
-apt-get install -y python3.11 python3.11-venv python3-pip git
+echo "=== [2/6] Install Python 3 + Git ==="
+apt-get install -y python3 python3-venv python3-pip git
 
 echo "=== [3/6] Clone project repo ==="
 git clone "$REPO_URL" /opt/project
 WORKER_DIR=/opt/project/quickstart/workers/inference-worker
 
 echo "=== [4/6] Install Python dependencies ==="
-python3.11 -m venv /opt/inference-venv
+python3 -m venv /opt/inference-venv
 source /opt/inference-venv/bin/activate
 pip install --upgrade pip
 pip install -r "$WORKER_DIR/requirements.txt"
