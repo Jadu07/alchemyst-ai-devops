@@ -3,7 +3,7 @@
 variable "aws_region" {
   description = "AWS region to deploy into"
   type        = string
-  default     = "ap-south-1" # Mumbai — closest to India
+  default     = "ap-south-1" 
 }
 
 variable "project_name" {
@@ -33,25 +33,25 @@ variable "private_subnet_cidr" {
 variable "engine_instance_type" {
   description = "EC2 instance type for the iii engine / API gateway"
   type        = string
-  default     = "t3.micro" # 1 GB RAM — just routes traffic
+  default     = "t3.micro"
 }
 
 variable "caller_instance_type" {
   description = "EC2 instance type for the caller worker"
   type        = string
-  default     = "t3.micro" # 1 GB RAM — lightweight Node.js
+  default     = "t3.micro" 
 }
 
 variable "inference_instance_type" {
   description = "EC2 instance type for the inference worker"
   type        = string
-  default     = "t3.medium" # 4 GB RAM — needs memory for PyTorch + model
+  default     = "t3.micro"
 }
 
 variable "ssh_allowed_cidr" {
   description = "CIDR allowed to SSH into the engine (bastion). Set to your IP."
   type        = string
-  default     = "0.0.0.0/0" # Open for demo — restrict in production!
+  default     = "0.0.0.0/0" 
 }
 
 variable "repo_url" {
