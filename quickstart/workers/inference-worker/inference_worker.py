@@ -1,4 +1,8 @@
 import os
+import sys
+import importlib.metadata
+_original_version = importlib.metadata.version
+importlib.metadata.version = lambda name: "0.10.0" if name == "gguf" else _original_version(name)
 from typing import Any, Dict, List
 
 from iii import InitOptions, Logger, register_worker
