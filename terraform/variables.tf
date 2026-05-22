@@ -57,5 +57,5 @@ variable "ssh_allowed_cidr" {
 variable "repo_url" {
   description = "Public Git repo URL — worker VMs clone this to get the quickstart code"
   type        = string
-  default     = "https://github.com/YOUR_USERNAME/devops-assignment.git"
+  default     = "https://github.com/Jadu07/alchemyst-ai-devops"
 }
