@@ -13,7 +13,7 @@ apt-get upgrade -y
 
 echo "=== [2/6] Install Node.js 20, Git ==="
 curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
-apt-get install -y nodejs git
+apt-get install -y nodejs git jq
 
 echo "=== [3/6] Install iii CLI ==="
 curl -fsSL https://install.iii.dev/iii/main/install.sh | bash -
