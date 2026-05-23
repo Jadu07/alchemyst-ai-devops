@@ -32,12 +32,12 @@ output "ssh_command_engine" {
 
 output "ssh_command_caller_worker" {
   description = "SSH into caller worker (via engine as bastion/jump host)"
-  value       = "ssh -i terraform/${var.project_name}-key.pem -J ubuntu@${aws_eip.engine.public_ip} ubuntu@${aws_instance.caller_worker.private_ip}"
+  value       = "ssh-add terraform/${var.project_name}-key.pem 2>/dev/null; ssh -i terraform/${var.project_name}-key.pem -J ubuntu@${aws_eip.engine.public_ip} ubuntu@${aws_instance.caller_worker.private_ip}"
 }
 
 output "ssh_command_inference_worker" {
   description = "SSH into inference worker (via engine as bastion/jump host)"
-  value       = "ssh -i terraform/${var.project_name}-key.pem -J ubuntu@${aws_eip.engine.public_ip} ubuntu@${aws_instance.inference_worker.private_ip}"
+  value       = "ssh-add terraform/${var.project_name}-key.pem 2>/dev/null; ssh -i terraform/${var.project_name}-key.pem -J ubuntu@${aws_eip.engine.public_ip} ubuntu@${aws_instance.inference_worker.private_ip}"
 }
 
 output "curl_test_command" {
