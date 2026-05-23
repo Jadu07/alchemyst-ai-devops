@@ -1,0 +1,8 @@
+# Terraform internal files
+terraform/.terraform/
+terraform/*.tfstate
+terraform/*.tfstate.*
+terraform/.terraform.lock.hcl
+
+# SSH keys / secrets
+*.pem
