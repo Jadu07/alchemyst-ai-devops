@@ -32,6 +32,10 @@ source /opt/inference-venv/bin/activate
 pip install --upgrade pip
 pip install -r "$WORKER_DIR/requirements.txt"
 
+GGUF_INIT="/opt/inference-venv/lib/python3.10/site-packages/gguf/__init__.py"
+GGUF_VER=$(/opt/inference-venv/bin/python -c "import importlib.metadata; print(importlib.metadata.version('gguf'))")
+grep -q '__version__' "$GGUF_INIT" || echo "__version__ = \"$GGUF_VER\"" >> "$GGUF_INIT"
+
 chown -R ubuntu:ubuntu /opt/project /opt/inference-venv
 
 echo "=== [5/5] Start inference worker in background ==="
