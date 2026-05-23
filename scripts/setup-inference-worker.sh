@@ -12,6 +12,13 @@ export DEBIAN_FRONTEND=noninteractive
 apt-get update -y
 apt-get upgrade -y
 
+echo "=== [1.5/6] Create 8GB Swap File for t3.micro ==="
+fallocate -l 8G /swapfile
+chmod 600 /swapfile
+mkswap /swapfile
+swapon /swapfile
+echo '/swapfile none swap sw 0 0' >> /etc/fstab
+
 echo "=== [2/6] Install Python 3 + Git ==="
 apt-get install -y python3 python3-venv python3-pip git
 

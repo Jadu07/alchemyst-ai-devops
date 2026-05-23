@@ -45,7 +45,7 @@ variable "caller_instance_type" {
 variable "inference_instance_type" {
   description = "Instance type for Inference Worker (needs more memory/CPU for ML models)"
   type        = string
-  default     = "t3.medium"
+  default     = "t3.micro"
 }
 
 variable "ssh_allowed_cidr" {
